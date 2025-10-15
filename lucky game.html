@@ -1,9 +1,13 @@
+<!--
+    Author: Venkatesh Nataraj B M
+    Release Date: 03-Mar-2023
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucky Game!</title>
+    <title>Check Luck</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
       * {
@@ -14,7 +18,7 @@
       .center-content {
         width: 97vw;
         height: 97vh;
-        disp  lay: flex;
+        display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
@@ -87,19 +91,26 @@
     <script>
       function logic() {
         const randomNum = Math.random();
-        let displayVal = "";
-        if (randomNum >= 0 && randomNum < 1 / 5) {
-          displayVal = "Less😢";
-        } else if (randomNum >= 1 / 5 && randomNum < 2 / 5) {
-          displayVal = "Not Bad!😒";
-        } else if (randomNum >= 2 / 5 && randomNum < 3 / 5) {
-          displayVal = "Moderate😉";
-        } else if (randomNum >= 3 / 5 && randomNum < 4 / 5) {
-          displayVal = "Good to Go!😊";
-        } else if (randomNum >= 4 / 5 && randomNum < 1) {
-          displayVal = "You re Lucky😀";
+        const resultDisplayValue =
+          document.querySelector(".result-display").innerHTML;
+        if (resultDisplayValue == "") {
+          document.querySelector(".result-display").innerHTML =
+            "Please, Enter Your Name!";
+        } else {
+          let displayVal = "";
+          if (randomNum >= 0 && randomNum < 1 / 5) {
+            displayVal = "Less😢";
+          } else if (randomNum >= 1 / 5 && randomNum < 2 / 5) {
+            displayVal = "Not Bad!😒";
+          } else if (randomNum >= 2 / 5 && randomNum < 3 / 5) {
+            displayVal = "Moderate😉";
+          } else if (randomNum >= 3 / 5 && randomNum < 4 / 5) {
+            displayVal = "Good to Go!😊";
+          } else if (randomNum >= 4 / 5 && randomNum < 1) {
+            displayVal = "You re Lucky😀";
+          }
+          document.querySelector(".result-display").innerHTML = displayVal;
         }
-        document.querySelector(".result-display").innerHTML = displayVal;
       }
     </script>
   </body>
